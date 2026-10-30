@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalidaTech | Shop</title>
+    <link rel="stylesheet" href="side-menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar" aria-label="Main menu">
+    <div class="logo-section">
+        <img src="logo.png" alt="CalidaTech logo">
+        <p class="user-name" id="userName">Guest</p>
+    </div>
+
+    <div class="menu-group">
+        <h4>Shop</h4>
+        <a href="#" class="menu-link active" data-section="home"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#" class="menu-link" data-section="products"><i class="fa-solid fa-box"></i> Products</a>
+        <a href="#" class="menu-link" data-section="categories"><i class="fa-solid fa-layer-group"></i> Categories</a>
+        <a href="#" class="menu-link" data-section="cart"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="count" id="cartCount">0</span></a>
+        <a href="#" class="menu-link" data-section="wishlist"><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="#" class="menu-link" data-section="orders"><i class="fa-solid fa-receipt"></i> My Orders</a>
+    </div>
+
+    <div class="menu-group">
+        <h4>Account</h4>
+        <a href="#" class="menu-link" data-section="profile"><i class="fa-solid fa-user"></i> Profile</a>
+        <a href="#" class="menu-link" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+</nav>
+
+<main class="main-content">
+    <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+
+    <section class="content-section active-section" id="home">
+        <h1>CalidaTech</h1>
+        <p id="welcomeText">Welcome!</p>
+
+        <div class="banner">
+            <h2>Gadget Season Sale</h2>
+            <p>Free shipping on orders over ₱5,000. Limited-time promo on phones, laptops and gaming gear.</p>
+        </div>
+
+        <h2>Featured Products</h2>
+        <div class="grid" id="featured"></div>
+
+        <h2>Why shop with us</h2>
+        <div class="highlights">
+            <div class="highlight"><i class="fa-solid fa-truck-fast"></i><h3>Fast Delivery</h3><p>Orders shipped within 2 days.</p></div>
+            <div class="highlight"><i class="fa-solid fa-shield-halved"></i><h3>Secure Payment</h3><p>Safe and simple checkout.</p></div>
+            <div class="highlight"><i class="fa-solid fa-rotate-left"></i><h3>7-Day Returns</h3><p>Easy returns on all gadgets.</p></div>
+        </div>
+    </section>
+
+    <section class="content-section" id="products">
+        <h1>Products</h1>
+        <div class="filter-bar">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter"></select>
+        </div>
+        <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="content-section" id="categories">
+        <h1>Categories</h1>
+        <div class="category-container" id="categoryGrid"></div>
+    </section>
+
+    <section class="content-section" id="cart">
+        <h1>Your Cart</h1>
+        <div id="cartBody"></div>
+    </section>
+
+    <section class="content-section" id="wishlist">
+        <h1>Wishlist</h1>
+        <div class="grid" id="wishGrid"></div>
+    </section>
+
+    <section class="content-section" id="orders">
+        <h1>My Orders</h1>
+        <div id="orderBody"></div>
+    </section>
+
+    <section class="content-section" id="profile">
+        <h1>Profile</h1>
+        <div class="profile-box">
+            <img class="profile-picture" src="logo.png" alt="Profile picture">
+            <h3 id="profileName"></h3>
+            <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+            <p><strong>Account type:</strong> <span id="profileRole"></span></p>
+            <p><strong>Contact number:</strong> +63 912 345 6789</p>
+        </div>
+    </section>
+</main>
+
+<script src="shared.js"></script>
+<script src="side-menu.js"></script>
+<script src="customer.js"></script>
+</body>
+</html>

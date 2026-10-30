@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalidaTech | Seller</title>
+    <link rel="stylesheet" href="side-menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar" aria-label="Seller menu">
+    <div class="logo-section">
+        <img src="logo.png" alt="CalidaTech logo">
+        <p class="user-name" id="userName">Seller</p>
+    </div>
+
+    <div class="menu-group">
+        <h4>Seller</h4>
+        <a href="#" class="menu-link active" data-section="overview"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        <a href="#" class="menu-link" data-section="manage"><i class="fa-solid fa-boxes-stacked"></i> Manage Products</a>
+        <a href="#" class="menu-link" data-section="add"><i class="fa-solid fa-circle-plus"></i> Add Product</a>
+        <a href="#" class="menu-link" data-section="sellerOrders"><i class="fa-solid fa-receipt"></i> Orders</a>
+    </div>
+
+    <div class="menu-group">
+        <h4>Account</h4>
+        <a href="#" class="menu-link" data-section="sellerProfile"><i class="fa-solid fa-store"></i> Seller Profile</a>
+        <a href="#" class="menu-link" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+</nav>
+
+<main class="main-content">
+    <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+
+    <section class="content-section active-section" id="overview">
+        <h1>Seller Dashboard</h1>
+        <p id="sellerWelcome"></p>
+        <div class="stats">
+            <div class="stat"><strong id="statProducts">0</strong><span>Total Products</span></div>
+            <div class="stat"><strong id="statOrders">0</strong><span>Total Orders</span></div>
+            <div class="stat"><strong id="statSales">₱0</strong><span>Total Sales</span></div>
+            <div class="stat"><strong id="statPending">0</strong><span>Pending Orders</span></div>
+        </div>
+    </section>
+
+    <section class="content-section" id="manage">
+        <h1>Manage Products</h1>
+        <p><button class="checkout-btn" type="button" data-act="new"><i class="fa-solid fa-plus"></i> Add Product</button></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+                <tbody id="manageBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="content-section" id="add">
+        <h1 id="formTitle">Add Product</h1>
+        <form class="form-box" id="productForm" novalidate>
+            <div class="form-group"><label for="pName">Product name</label><input type="text" id="pName" maxlength="60"></div>
+            <div class="form-group"><label for="pPrice">Price (₱)</label><input type="number" id="pPrice" min="1" step="0.01"></div>
+            <div class="form-group"><label for="pCategory">Category</label><input type="text" id="pCategory" list="categoryList" maxlength="30"><datalist id="categoryList"></datalist></div>
+            <div class="form-group"><label for="pStock">Stock quantity</label><input type="number" id="pStock" min="0" step="1"></div>
+            <p class="form-msg" id="formError" role="alert"></p>
+            <button class="checkout-btn" type="submit" id="saveBtn">Add Product</button>
+        </form>
+    </section>
+
+    <section class="content-section" id="sellerOrders">
+        <h1>Orders</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Order No.</th><th>Customer</th><th>Product ordered</th><th>Status</th><th>Total</th></tr></thead>
+                <tbody id="sellerOrderBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="content-section" id="sellerProfile">
+        <h1>Seller Profile</h1>
+        <div class="profile-box">
+            <img class="profile-picture" src="logo.png" alt="Store logo">
+            <h3 id="sellerName"></h3>
+            <p><strong>Store name:</strong> CalidaTech Official Store</p>
+            <p><strong>Email:</strong> <span id="sellerEmail"></span></p>
+            <p><strong>Contact:</strong> +63 917 555 0123</p>
+        </div>
+    </section>
+</main>
+
+<script src="shared.js"></script>
+<script src="side-menu.js"></script>
+<script src="seller.js"></script>
+</body>
+</html>

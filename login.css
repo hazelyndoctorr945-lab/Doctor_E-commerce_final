@@ -1,0 +1,578 @@
+/* =====================================
+   CALIDATECH LOGIN AND REGISTER
+===================================== */
+
+:root {
+    --brown-dark: #4b2e24;
+    --brown: #795548;
+    --brown-light: #a47551;
+    --cream: #f8f1e7;
+    --white: #ffffff;
+    --text: #3d2b24;
+    --muted: #806e64;
+    --error: #b42318;
+    --success: #287a46;
+    --shadow: 0 20px 55px rgba(49, 30, 20, 0.20);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, #e7d3bc 0, transparent 38%),
+        linear-gradient(135deg, #f8f1e7, #ead8c5);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--brown);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--brown-dark);
+    text-decoration: underline;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    position: relative;
+    width: 900px;
+    max-width: 100%;
+    min-height: 640px;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+/* FORM SECTIONS */
+
+.form-container {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    padding: 42px 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    transition: transform 0.55s ease, opacity 0.35s ease;
+}
+
+.form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-container h1 {
+    margin-bottom: 7px;
+    color: var(--brown-dark);
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-subtitle {
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-container {
+    left: 0;
+    z-index: 2;
+}
+
+.register-container {
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* SWITCH BETWEEN LOGIN AND REGISTER */
+
+.container.active .login-container {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.active .register-container {
+    transform: translateX(100%);
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* INPUT FIELDS */
+
+.input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 49px;
+    margin-bottom: 15px;
+    border: 1px solid #e3d5c8;
+    border-radius: 10px;
+    background: #fcfaf7;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box:focus-within {
+    border-color: var(--brown);
+    box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.12);
+}
+
+.lock-icon {
+    width: 42px;
+    flex-shrink: 0;
+    color: var(--brown);
+    text-align: center;
+}
+
+.input-box input {
+    width: 100%;
+    min-width: 0;
+    height: 47px;
+    padding: 0 10px 0 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.input-box input::placeholder {
+    color: #9b8b81;
+}
+
+.toggle-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 45px;
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    color: var(--brown-dark);
+}
+
+.forgot {
+    align-self: flex-end;
+    margin: -3px 0 17px;
+    font-size: 12px;
+}
+
+/* BUTTONS */
+
+.btn,
+.google-btn,
+.panel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn {
+    border: none;
+    background: var(--brown-dark);
+    color: var(--white);
+}
+
+.btn:hover {
+    background: var(--brown);
+    transform: translateY(-1px);
+}
+
+.google-btn {
+    border: 1px solid #e3d5c8;
+    background: var(--white);
+    color: var(--text);
+    font-size: 13px;
+}
+
+.google-btn:hover {
+    background: var(--cream);
+}
+
+.google-btn i {
+    color: #b74735;
+}
+
+.panel-btn {
+    width: auto;
+    min-width: 145px;
+    margin-top: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: transparent;
+    color: var(--white);
+}
+
+.panel-btn:hover {
+    background: var(--white);
+    color: var(--brown-dark);
+}
+
+/* LINKS AND DIVIDER */
+
+.switch-text {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.switch-text a {
+    margin-left: 3px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 17px 0 14px;
+    color: #a3958b;
+    font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: #e8ded5;
+}
+
+.demo-note {
+    margin-top: 9px;
+    color: #9b8b81;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* ERROR MESSAGES */
+
+.form-error {
+    display: none;
+    margin: -3px 0 12px;
+    color: var(--error);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.form-error.show {
+    display: block;
+}
+
+/* WELCOME PANEL */
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 120px 0 0 120px;
+    transition: transform 0.55s ease, border-radius 0.55s ease;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 120px 120px 0;
+}
+
+.toggle {
+    position: relative;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--brown-light), var(--brown-dark));
+    transform: translateX(0);
+    transition: transform 0.55s ease;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    padding: 36px;
+    text-align: center;
+}
+
+.toggle-left {
+    left: 0;
+    transform: translateX(-15%);
+    transition: transform 0.55s ease;
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+    transition: transform 0.55s ease;
+}
+
+.container.active .toggle-right {
+    transform: translateX(15%);
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 22px;
+    font-size: 28px;
+}
+
+.toggle-panel h1 {
+    margin-bottom: 8px;
+    font-size: 29px;
+}
+
+.toggle-panel h4 {
+    margin-bottom: 16px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.calidatech-text {
+    font-weight: 700;
+}
+
+.toggle-panel p {
+    max-width: 260px;
+    margin: 8px 0;
+    color: #f8eee7;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* SUCCESS POPUP */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(32, 20, 15, 0.58);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.popup-content p {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+.popup-content {
+    width: 100%;
+    max-width: 360px;
+    padding: 30px 25px;
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transform: translateY(10px);
+    transition: transform 0.2s ease;
+}
+
+.popup.show .popup-content {
+    transform: translateY(0);
+}
+
+.popup-icon {
+    margin-bottom: 12px;
+    color: var(--success);
+    font-size: 48px;
+}
+
+.popup-content h2 {
+    margin-bottom: 8px;
+    color: var(--brown-dark);
+    font-size: 24px;
+}
+
+
+.popup-content button {
+    min-width: 110px;
+    padding: 11px 24px;
+    border: none;
+    border-radius: 9px;
+    background: var(--brown-dark);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background: var(--brown);
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 760px) {
+    body {
+        padding: 16px;
+    }
+
+    .container {
+        width: 470px;
+        min-height: 610px;
+        border-radius: 20px;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 38px 30px;
+    }
+
+    .login-container {
+        left: 0;
+    }
+
+    .register-container {
+        left: 0;
+    }
+
+    .container.active .login-container {
+        transform: translateX(-100%);
+    }
+
+    .container.active .register-container {
+        transform: translateX(0);
+    }
+
+    .toggle-container {
+        display: none;
+    }
+
+    .form-container h1 {
+        font-size: 27px;
+    }
+
+    .container.active .register-container {
+        z-index: 5;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        min-height: 590px;
+    }
+
+    .form-container {
+        padding: 28px 20px;
+    }
+
+    .form-container h1 {
+        font-size: 25px;
+    }
+
+    .input-box input {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* ROLE DROPDOWN */
+
+.input-box select {
+    width: 100%;
+    height: 47px;
+    padding: 0 10px 0 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 13px;
+}
+.brand-mark img {
+   max-height: 120px; 
+    width: auto;
+    object-fit: contain;
+}

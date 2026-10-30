@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalidaTech | Login</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="container" id="container">
+
+        <!-- LOGIN FORM -->
+        <section class="form-container login-container">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <p class="form-subtitle">Welcome back to CalidaTech!</p>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user lock-icon" aria-hidden="true"></i>
+                    <input type="text"
+                           id="loginUsername"
+                           name="username"
+                           placeholder="Username or Email"
+                           autocomplete="username"
+                           required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock lock-icon" aria-hidden="true"></i>
+                    <input type="password"
+                           id="loginPassword"
+                           name="password"
+                           placeholder="Password"
+                           autocomplete="current-password"
+                           data-password-input
+                           required>
+                    <button type="button"
+                            class="toggle-password"
+                            data-target="loginPassword"
+                            aria-label="Show password">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <a href="#" class="forgot" id="forgotPassword">
+                    Forgot Password?
+                </a>
+
+                <p class="form-error" id="loginError" role="alert"></p>
+
+                <button type="submit" class="btn">Login</button>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <a href="#" id="registerLink">Register</a>
+                </p>
+
+                <div class="divider"><span>OR</span></div>
+
+                <button type="button" class="google-btn" id="googleSignIn">
+                    <i class="fa-brands fa-google" aria-hidden="true"></i>
+                    Continue with Google
+                </button>
+
+                <p class="demo-note">Demo accounts: user@example.com / user123 &middot; seller@example.com / seller123</p>
+            </form>
+        </section>
+
+        <!-- REGISTER FORM -->
+        <section class="form-container register-container">
+            <form id="registerForm">
+                <h1>Create Account</h1>
+                <p class="form-subtitle">Join the <strong>CalidaTech</strong> community.</p>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user lock-icon" aria-hidden="true"></i>
+                    <input type="text"
+                           id="regUsername"
+                           name="username"
+                           placeholder="Username"
+                           autocomplete="username"
+                           minlength="3"
+                           maxlength="30"
+                           required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope lock-icon" aria-hidden="true"></i>
+                    <input type="email"
+                           id="regEmail"
+                           name="email"
+                           placeholder="Email"
+                           autocomplete="email"
+                           required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-store lock-icon" aria-hidden="true"></i>
+                    <select id="regRole" name="role" required>
+                        <option value="User">Register as Customer</option>
+                        <option value="Seller">Register as Seller</option>
+                    </select>
+                </div>
+
+                <div class="input-box" id="sellerCodeBox" style="display:none">
+                    <i class="fa-solid fa-key lock-icon" aria-hidden="true"></i>
+                    <input type="text"
+                           id="regSellerCode"
+                           placeholder="Seller access code"
+                           autocomplete="off">
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock lock-icon" aria-hidden="true"></i>
+                    <input type="password"
+                           id="regPassword"
+                           name="password"
+                           placeholder="Password (at least 6 characters)"
+                           autocomplete="new-password"
+                           minlength="6"
+                           data-password-input
+                           required>
+                    <button type="button"
+                            class="toggle-password"
+                            data-target="regPassword"
+                            aria-label="Show password">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock lock-icon" aria-hidden="true"></i>
+                    <input type="password"
+                           id="regConfirmPassword"
+                           name="confirmPassword"
+                           placeholder="Confirm Password"
+                           autocomplete="new-password"
+                           data-password-input
+                           required>
+                    <button type="button"
+                            class="toggle-password"
+                            data-target="regConfirmPassword"
+                            aria-label="Show password">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <p class="form-error" id="registerError" role="alert"></p>
+
+                <button type="submit" class="btn">Create Account</button>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <a href="#" id="loginLink">Login</a>
+                </p>
+            </form>
+        </section>
+
+        <!-- WELCOME PANEL -->
+        <section class="toggle-container" aria-label="Welcome panel">
+            <div class="toggle">
+
+                <div class="toggle-panel toggle-left">
+                    <div class="brand-mark">
+                        <img src="logo1.png" >
+                    </div>
+                    <h1>Welcome!</h1>
+                    <p>Create your CalidaTech account and start exploring.</p>
+                    <button class="panel-btn" id="register" type="button">
+                        Register
+                    </button>
+                </div>
+
+                <div class="toggle-panel toggle-right">
+                    <div class="brand-mark">
+                      <img src="logo1.png" alt="CalidaTech Logo">
+                    </div>
+                    <h1>Welcome Back!</h1>
+                    <h4>to <span class="calidatech-text">CalidaTech</span></h4>
+                    <p>Sign in to continue to your account.</p>
+                    <button class="panel-btn" id="login" type="button">
+                        Login
+                    </button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- SUCCESS / MESSAGE POPUP -->
+   <div class="popup" id="successPopup"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="popupTitle"
+     aria-hidden="true">
+
+    <div class="popup-content">
+        <i class="fa-solid fa-circle-check popup-icon"
+           aria-hidden="true"></i>
+
+        <h2 id="popupTitle">Success!</h2>
+
+        <p id="popupMessage">
+            Your action was completed successfully.
+        </p>
+
+        <button type="button" id="closePopup">OK</button>
+    </div>
+</div>
+    <script src="login.js"></script>
+</body>
+</html>
